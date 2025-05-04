@@ -68,18 +68,18 @@
 					"builder": "ngx-build-plus:dev-server",
 					"configurations": {
 						"production": {
-							"buildTarget": "mf-angular-16:build:production",
+							"browserTarget": "mf-angular-16:build:production",
 							"extraWebpackConfig": "webpack.prod.config.js"
 						},
 						"development": {
-							"buildTarget": "mf-angular-16:build:development"
+							"browserTarget": "mf-angular-16:build:development"
 						}
 					},
 					"defaultConfiguration": "development",
 					"options": {
+            "browserTarget": "mf-angular-16:build",
 						"port": 4202,
-						"publicHost": "http://localhost:4202",
-						"extraWebpackConfig": "webpack.config.js"
+						"publicHost": "http://localhost:4202"
 					}
 				},
 				"extract-i18n": {
