@@ -7,11 +7,12 @@ module.exports = withModuleFederationPlugin({
   name: 'mf-angular-16',
 
   exposes: {
-    "./AppComponent": "./src/app/app.component.ts",
+    "./AppModule": "./src/app/app.module.ts",
   },
 
   shared: {
-    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+    ...shareAll({ singleton: true, strictVersion: false }),
+    // ...shareAll({ singleton: true, strictVersion: false, requiredVersion: 'auto' }),
   },
 
 });

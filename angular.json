@@ -68,11 +68,12 @@
 					"builder": "ngx-build-plus:dev-server",
 					"configurations": {
 						"production": {
-							"browserTarget": "mf-angular-16:build:production",
+							"browserTarget": "mf-angular-16:build:development",
 							"extraWebpackConfig": "webpack.prod.config.js"
 						},
 						"development": {
-							"browserTarget": "mf-angular-16:build:development"
+							"browserTarget": "mf-angular-16:build:development",
+              "extraWebpackConfig": "webpack.prod.config.js"
 						}
 					},
 					"defaultConfiguration": "development",
