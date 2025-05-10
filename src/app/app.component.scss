@@ -1,0 +1,49 @@
+.mf-angular-16-remote-theme {
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #1e1d20;
+  color: #ede8f7;
+  min-height: 90vh;
+  padding: 1rem;
+}
+
+main {
+  width: 90%;
+  max-width: 50rem;
+  margin: 2.5rem auto;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 2rem;
+}
+
+#users {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+  overflow: auto;
+}
+
+#fallback {
+  font-weight: bold;
+  font-size: 1.15rem;
+  margin: 0;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  main {
+    margin: 4rem auto;
+    grid-template-columns: 1fr 3fr;
+  }
+
+  #users {
+    flex-direction: column;
+  }
+
+  #fallback {
+    font-size: 1.5rem;
+    text-align: left;
+  }
+}

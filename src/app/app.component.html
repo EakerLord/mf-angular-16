@@ -1,9 +1,21 @@
-<h1>Bienvenido a Angular 16 🎉</h1>
+<div class="mf-angular-16-remote-theme">
+  <app-header />
 
-<nav>
-  <a routerLink="/a16/home" routerLinkActive="active"> >>> Home</a>
-</nav>
+  <main>
+    <ul id="users">
+      <li *ngFor="let lesson of lessons">
+        <app-lesson
+          [lesson]="lesson"
+          [selected]="lesson.id === selectedLessonId"
+          (select)="onSelectLesson($event)" />
+      </li>
+    </ul>
 
-<hr />
+    <app-tasks *ngIf="selectedLesson; else fallback" [lessonId]="selectedLesson.id" [name]="selectedLesson.name" />
 
-<router-outlet></router-outlet>
+    <ng-template #fallback>
+      <p id="fallback">Select a lesson to see their tasks!</p>
+    </ng-template>
+
+  </main>
+</div>
