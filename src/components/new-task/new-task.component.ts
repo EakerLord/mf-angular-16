@@ -1,12 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { TaskService } from '../tasks/tasks.service';
-
+import { TaskService } from '../../services/tasks.service';
 @Component({
   selector: 'app-new-task',
   templateUrl: './new-task.component.html',
   styleUrls: ['./new-task.component.scss']
 })
-
 export class NewTaskComponent {
   @Input({required: true}) lessonId!: string;
   @Output() close = new EventEmitter<void>();

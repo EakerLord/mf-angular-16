@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { NewTaskData } from "../task/task.model";
+import { NewTaskData } from "../components/task/task.model";
 @Injectable({providedIn: 'root'})
 export class TaskService {
   private tasks = [
@@ -33,6 +33,8 @@ export class TaskService {
     }
   ];
 
+  activePermission: string = 'guest';
+
   constructor() {
     const tasks = localStorage.getItem('tasks');
 
@@ -44,7 +46,6 @@ export class TaskService {
   getLessonTasks(lessonId: string) {
     return this.tasks.filter((task) => task.lessonId === lessonId);
   }
-
   addTask(task: NewTaskData, lessonId: string) {
     this.tasks.push({
       id: new Date().getTime().toString(),
@@ -55,13 +56,20 @@ export class TaskService {
     });
     this.saveTasks();
   }
-
   removeTask(id: string) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
     this.saveTasks();
   }
-
   private saveTasks() {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
+
+  // Estructural directive method
+  taskAuthentication(taskCode: boolean) {
+    if (taskCode) {
+      this.activePermission = 'fede';
+    } else {
+      this.activePermission = 'guest';
+    }
   }
 }
