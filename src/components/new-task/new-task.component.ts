@@ -19,14 +19,7 @@ export class NewTaskComponent {
   }
 
   onSubmit() {
-    this.taskService.addTask(
-      {
-        title: this.enteredTitle,
-        summary: this.enteredSummary,
-        date: this.enteredDate
-      },
-      this.lessonId
-    );
+    this.taskService.addTask({ title: this.enteredTitle, summary: this.enteredSummary, date: this.enteredDate, status: 'OPEN' }, this.lessonId );
     this.close.emit();
   };
 }

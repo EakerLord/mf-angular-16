@@ -9,7 +9,7 @@
 header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: anchor-center;
   margin-bottom: 2rem;
   gap: 1rem;
 }
@@ -60,4 +60,14 @@ ul {
   menu {
     width: auto;
   }
+}
+
+select {
+  font: inherit;
+  padding: 0.5rem;
+  border: none;
+  background-color: #262521;
+  color: #feeaa6;
+  border-radius: 0.25rem;
+  font-size: 0.9rem;
 }
