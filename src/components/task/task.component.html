@@ -8,11 +8,25 @@
     <time>{{ task.dueDate | date:'fullDate'}}</time>
     <p>{{ task.summary }}</p>
 
-    <p>This task is like {{ temperature | temperature:'cel':'fah' }} <|> {{ temperature | temperature:'fah':'cel' }}</p>
-
     <!-- Sintactic sugar way of the custom estructural directive -->
-    <div *appAuth="'fede'">
-      <a href="https://angular.dev/" appSafeLink="/tutorials">Link to Angular site!</a>
+    <div *ngIf="task.title === 'Directives'">
+       <div *appAuth="'fede'">
+         <a href="https://angular.dev/" appSafeLink="/tutorials">Link to Angular site!</a>
+       </div>
+    </div>
+
+    <p *ngIf="task.title === 'Pipes'">
+      This task is like {{ temperature | temperature:'cel':'fah' }} <|> {{ temperature | temperature:'fah':'cel' }}
+    </p>
+
+    <div *ngIf="task.title === 'RxJS'">
+      <p>Observables are values on a stream of data and are great for managing events or streamed data.</p>
+      <p>Signals are values on a container and are great for managind the applicationstate. </p>
+
+      <p class="actions">
+        {{slowCurstomInterval}} |
+        {{regularInterval}}
+      </p>
     </div>
 
     <div class="form">

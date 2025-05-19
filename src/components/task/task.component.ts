@@ -1,13 +1,45 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { TaskStatus, type Task } from "./task.model";
 import { TaskService } from '../../services/tasks.service';
+import { interval, map, Observable, Subscription } from 'rxjs';
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.scss']
 })
-export class TaskComponent {
+export class TaskComponent implements OnInit, OnDestroy{
   @Input({required: true}) task!: Task;
+  temperature: number = 39; // Variable needed for the temperature Pipe.
+
+  regularInterval = 0;
+  private regularSubscription!: Subscription;
+  // Custom Observable
+  slowCurstomInterval = 0;
+  private customSubscription!: Subscription;
+  customInterval$ = new Observable((subscriber) => {
+    setInterval(() => {
+      subscriber.next({message: 'New Value', value: 1})
+    }, 2000);
+  });
+
+  constructor(private taskService: TaskService) {}
+
+  ngOnInit(): void {
+    this.regularSubscription = interval(1000).pipe( // Normal interval observable
+      map((val) => val * 2)
+    ).subscribe({
+      next: (val) => this.regularInterval = val
+    });
+
+    this.customSubscription = this.customInterval$.subscribe({
+      next: (val) => this.slowCurstomInterval = this.slowCurstomInterval + 1
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.regularSubscription.unsubscribe();
+    this.customSubscription.unsubscribe();
+  }
 
   get taskStatus(): string {
     switch (this.task.status) {
@@ -21,11 +53,6 @@ export class TaskComponent {
         return 'Open';
     }
   }
-
-  temperature: number = 39;
-
-  constructor(private taskService: TaskService) {}
-
   onChangeTaskStatus(taskId: string, status: string) {
     let newStatus: TaskStatus = 'OPEN';
 
@@ -45,7 +72,6 @@ export class TaskComponent {
 
     this.taskService.updateTaskStatus(taskId, newStatus);
   }
-
   onCompleteTask() {
     this.taskService.removeTask(this.task.id);
   }
