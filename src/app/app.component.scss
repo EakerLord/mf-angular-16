@@ -7,20 +7,18 @@
   padding: 1rem;
 }
 
-main {
-  width: 90%;
-  max-width: 50rem;
-  margin: 2.5rem auto;
-  display: grid;
-  grid-auto-flow: row;
-  gap: 2rem;
+.mf-angular-16-remote-theme__lessons-tasks {
+  padding: 2% 15%;
 }
 
 #users {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
   gap: 0.5rem;
   overflow: auto;
 }
@@ -39,11 +37,11 @@ main {
   }
 
   #users {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   #fallback {
     font-size: 1.5rem;
-    text-align: left;
+    text-align: center;
   }
 }

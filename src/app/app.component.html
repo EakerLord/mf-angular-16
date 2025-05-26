@@ -1,7 +1,7 @@
 <div class="mf-angular-16-remote-theme">
   <app-header />
 
-  <main>
+  <div>
     <ul id="users">
       <li *ngFor="let lesson of lessons">
         <app-lesson
@@ -11,11 +11,13 @@
       </li>
     </ul>
 
-    <app-tasks *ngIf="selectedLesson; else fallback" [lessonId]="selectedLesson.id" [name]="selectedLesson.name" />
+    <div class="mf-angular-16-remote-theme__lessons-tasks">
+      <app-tasks *ngIf="selectedLesson; else fallback" [lessonId]="selectedLesson.id" [name]="selectedLesson.name" />
+      <ng-template #fallback>
+        <p id="fallback">Select a lesson to see their tasks!</p>
+      </ng-template>
+    </div>
 
-    <ng-template #fallback>
-      <p id="fallback">Select a lesson to see their tasks!</p>
-    </ng-template>
-
-  </main>
+  </div>
 </div>
+

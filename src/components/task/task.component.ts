@@ -11,6 +11,7 @@ export class TaskComponent implements OnInit, OnDestroy{
   @Input({required: true}) task!: Task;
   temperature: number = 39; // Variable needed for the temperature Pipe.
 
+  // Regular Observable
   regularInterval = 0;
   private regularSubscription!: Subscription;
   // Custom Observable

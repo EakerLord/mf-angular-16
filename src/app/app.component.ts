@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DUMMY_LESSONS } from "../assets/dummy-lessons"
+import { DUMMY_LESSONS } from "../assets/dummy-data"
 @Component({
   selector: 'app-root-angular-16',
   templateUrl: './app.component.html',

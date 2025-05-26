@@ -23,10 +23,17 @@
       <p>Observables are values on a stream of data and are great for managing events or streamed data.</p>
       <p>Signals are values on a container and are great for managind the applicationstate. </p>
 
+      <p class="actions"> {{slowCurstomInterval}} | {{regularInterval}} </p>
+    </div>
+
+    <div *ngIf="task.title === 'HTTP Requests'">
       <p class="actions">
-        {{slowCurstomInterval}} |
-        {{regularInterval}}
+        <button type="button">Click on me to learn more about HTTP requests with spacecraft!</button>
       </p>
+    </div>
+
+    <div *ngIf="task.title === 'Template Forms'">
+      <app-simple-form />
     </div>
 
     <div class="form">
