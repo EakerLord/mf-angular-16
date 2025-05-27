@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { TaskStatus, type Task } from "./task.model";
 import { TaskService } from '../../services/tasks.service';
 import { interval, map, Observable, Subscription } from 'rxjs';
@@ -9,6 +9,8 @@ import { interval, map, Observable, Subscription } from 'rxjs';
 })
 export class TaskComponent implements OnInit, OnDestroy{
   @Input({required: true}) task!: Task;
+  @Output() taskUpdated = new EventEmitter<void>();
+
   temperature: number = 39; // Variable needed for the temperature Pipe.
 
   // Regular Observable
@@ -75,5 +77,6 @@ export class TaskComponent implements OnInit, OnDestroy{
   }
   onCompleteTask() {
     this.taskService.removeTask(this.task.id);
+    this.taskUpdated.emit();
   }
 }

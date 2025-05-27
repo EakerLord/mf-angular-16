@@ -10,13 +10,16 @@
       </select>
     </p>
     <menu>
+      <button [routerLink]="['./']" [queryParams]="{ sort: selectedSort === 'asc' ? 'desc' : 'asc' }">
+        Sort {{ selectedSort === 'asc' ? 'descending' : 'ascending' }}
+      </button>
       <button [routerLink]="['new']">Add Task</button>
     </menu>
   </header>
 
   <ul>
-    <li *ngFor="let task of selectedLessonTasks">
-        <app-task [task]="task"></app-task>
+    <li *ngFor="let task of displayedTasks">
+        <app-task [task]="task" (taskUpdated)="onTaskChanged()" />
     </li>
   </ul>
 </section>
