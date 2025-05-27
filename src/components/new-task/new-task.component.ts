@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, effect, EventEmitter, Input, Output } from '@angular/core';
 import { TaskService } from '../../services/tasks.service';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-new-task',
   templateUrl: './new-task.component.html',
@@ -12,14 +13,16 @@ export class NewTaskComponent {
   enteredSummary = '';
   enteredDate = '';
 
-  constructor(private taskService: TaskService) {}
-
-  onCancel() {
-    this.close.emit();
+  constructor(private taskService: TaskService, private route: ActivatedRoute, private router: Router) {
+    effect(() => {
+      const parentParams = this.route.parent?.snapshot.paramMap;
+      const id = parentParams?.get('lessonId');
+      if (id) this.lessonId = id;
+    });
   }
 
   onSubmit() {
     this.taskService.addTask({ title: this.enteredTitle, summary: this.enteredSummary, date: this.enteredDate, status: 'OPEN' }, this.lessonId );
-    this.close.emit();
+    this.router.navigate(['../'], {relativeTo: this.route});
   };
 }

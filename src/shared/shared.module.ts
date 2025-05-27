@@ -6,10 +6,11 @@ import { TemperaturePipe } from "../pipes/temperature.pipe";
 import { SafeLinkDirective } from "../directives/safe-link.directive";
 
 import { AuthDirective } from "../directives/auth.directive";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [ TemperaturePipe, SafeLinkDirective, AuthDirective ],
-  imports: [ CommonModule, FormsModule ],
-  exports: [ CommonModule, FormsModule, TemperaturePipe, SafeLinkDirective, AuthDirective ]
+  imports: [ CommonModule, FormsModule, RouterModule ],
+  exports: [ CommonModule, FormsModule, RouterModule, TemperaturePipe, SafeLinkDirective, AuthDirective ]
 })
 export class SharedModule {}

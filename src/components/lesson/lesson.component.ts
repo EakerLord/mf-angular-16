@@ -20,17 +20,3 @@ export class LessonComponent {
     this.select.emit(this.lesson.id);
   }
 }
-
-/*
-  selectedLesson = DUMMY_LESSONS[randomIndex];
-
-  Getter para usar el property biding: [src]="imagePath"
-  get imagePath() {
-    return 'assets/' + this.lessonAvatar;
-  }
-
-  Metodo para usar el event biding: (click)="onSelectLesson()"
-  onSelectLesson() {
-    console.log('Clicked!');
-  }
-*/
