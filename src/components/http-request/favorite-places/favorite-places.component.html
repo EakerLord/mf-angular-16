@@ -1,0 +1,13 @@
+<app-places-container title="Your Favorite Places">
+  <p class="fallback-text" *ngIf="localError">{{ localError }}</p>
+
+  <p class="fallback-text" *ngIf="isFetching && !localError">
+    Loading your favorite places, please wait.
+  </p>
+
+  <app-places [places]="favoritePlaces" (selectPlace)="onRemovePlace($event)" *ngIf="!isFetching && !localError && favoritePlaces.length > 0" />
+
+  <p class="fallback-text" *ngIf="!isFetching && !localError && favoritePlaces.length === 0">
+    Unfortunately, no places could be found.
+  </p>
+</app-places-container>

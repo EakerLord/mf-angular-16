@@ -14,24 +14,21 @@
          <a href="https://angular.dev/" appSafeLink="/tutorials">Link to Angular site!</a>
        </div>
     </div>
-
     <p *ngIf="task.title === 'Pipes'">
       This task is like {{ temperature | temperature:'cel':'fah' }} <|> {{ temperature | temperature:'fah':'cel' }}
     </p>
-
     <div *ngIf="task.title === 'RxJS'">
       <p>Observables are values on a stream of data and are great for managing events or streamed data.</p>
       <p>Signals are values on a container and are great for managind the applicationstate. </p>
 
       <p class="actions"> {{slowCurstomInterval}} | {{regularInterval}} </p>
     </div>
-
     <div *ngIf="task.title === 'HTTP Requests'">
+      <app-new-request (close)="onCloseAddRequest()" *ngIf="isAddingRequest"></app-new-request>
       <p class="actions">
-        <button type="button">Click on me to learn more about HTTP requests with spacecraft!</button>
+        <button type="button" (click)="onStartAddRequest()">Click on me to learn more about HTTP requests with images!</button>
       </p>
     </div>
-
     <div *ngIf="task.title === 'Template Forms'">
       <app-simple-form />
     </div>

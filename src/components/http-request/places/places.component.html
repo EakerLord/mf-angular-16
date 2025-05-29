@@ -1,0 +1,11 @@
+<ul>
+  <li class="place-item" *ngFor="let place of places; trackBy: trackById">
+    <button (click)="onSelectPlace(place)">
+      <img
+        [src]="'http://localhost:3000/' + place.image.src"
+        [alt]="place.image.alt"
+      />
+      <h3>{{ place.title }}</h3>
+    </button>
+  </li>
+</ul>

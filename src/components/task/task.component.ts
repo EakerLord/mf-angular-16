@@ -11,6 +11,7 @@ export class TaskComponent implements OnInit, OnDestroy{
   @Input({required: true}) task!: Task;
   @Output() taskUpdated = new EventEmitter<void>();
 
+  isAddingRequest = false // Variable needed for the HTTP request component.
   temperature: number = 39; // Variable needed for the temperature Pipe.
 
   // Regular Observable
@@ -74,9 +75,13 @@ export class TaskComponent implements OnInit, OnDestroy{
     }
 
     this.taskService.updateTaskStatus(taskId, newStatus);
+    this.taskUpdated.emit();
   }
   onCompleteTask() {
     this.taskService.removeTask(this.task.id);
     this.taskUpdated.emit();
   }
+
+  onStartAddRequest() { this.isAddingRequest = true };
+  onCloseAddRequest() { this.isAddingRequest = false };
 }

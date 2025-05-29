@@ -1,0 +1,13 @@
+<app-places-container title="Available Places">
+  <p class="fallback-text" *ngIf="localError">{{ localError }}</p>
+
+  <p class="fallback-text" *ngIf="isFetching && !localError">
+    Loading the available places, please wait.
+  </p>
+
+  <app-places [places]="userPlaces" (selectPlace)="onSelectPlace($event)" *ngIf="!isFetching && !localError && userPlaces.length > 0" />
+
+  <p class="fallback-text" *ngIf="!isFetching && !localError && userPlaces.length === 0">
+    Unfortunately, no places could be found.
+  </p>
+</app-places-container>
