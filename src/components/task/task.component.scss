@@ -3,13 +3,16 @@ article {
   color: #11193d;
   background-color: #9ea4e5;
 }
-
 h2 {
   margin: 0;
 }
-
+h3 {
+  color: #594b0e;
+  margin: 0;
+}
 p {
   color: #04207f;
+  font-weight: bold;
 }
 
 time {
@@ -38,15 +41,6 @@ time {
 .actions button:active {
   background-color: #071d74;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
-}
-
-h3 {
-  color: #594b0e;
-  margin: 0;
-}
-
-p {
-  font-weight: bold;
 }
 
 header {
