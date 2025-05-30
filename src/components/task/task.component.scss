@@ -9,6 +9,7 @@ h2 {
 h3 {
   color: #594b0e;
   margin: 0;
+  margin-right: 2%;
 }
 p {
   color: #04207f;
@@ -45,9 +46,15 @@ time {
 
 header {
   display: flex;
+  justify-content: space-between;
   gap: 0.5rem;
   align-items: center;
   margin-bottom: 0.5rem;
+}
+
+header span {
+  display: flex;
+  width: 65%;
 }
 
 header p {
@@ -120,4 +127,9 @@ select {
 .button:active {
   background-color: #cbac21;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
 }

@@ -9,9 +9,8 @@ p {
 }
 
 form {
-  width: 90%;
   max-width: 40rem;
-  padding: 2rem;
+  padding: 1rem;
   background: linear-gradient(180deg, #070b3d, #23263b);
   border-radius: 8px;
   box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.5);
@@ -23,6 +22,7 @@ fieldset {
 }
 
 .control.no-margin {
+  margin-right: 5%;
   margin-bottom: 0;
 }
 
@@ -142,13 +142,4 @@ input.ng-invalid.ng-touched.ng-dirty {
 .button:active {
   background-color: #cbac21;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
-}
-
-.control:has(.ng-invalid.ng-touched.ng-dirty) label {
-  color: #f98b75;
-}
-
-input.ng-invalid.ng-touched.ng-dirty {
-  background-color: #fbdcd6;
-  border-color: #f84e2c;
 }

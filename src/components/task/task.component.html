@@ -1,8 +1,25 @@
 <app-card>
   <article>
     <header>
-      <h3>{{ task.title }}</h3>
-      <p>{{ taskStatus }}</p>
+      <span>
+        <h3>{{ task.title }}</h3>
+        <p>{{ taskStatus }}</p>
+      </span>
+      <div class="form">
+        <select #status>
+          <option value="open" [selected]="task.status === 'OPEN'">Open</option>
+          <option value="in-progress" [selected]="task.status === 'IN_PROGRESS'">
+            In-Progress
+          </option>
+          <option value="done" [selected]="task.status === 'DONE'">
+            Completed
+          </option>
+        </select>
+        <p>
+          <button class="button" (click)="onChangeTaskStatus(task.id, status.value)">Change Status</button>
+        </p>
+      </div>
+      <p class="actions"><button type="button" (click)="onCompleteTask()">Complete</button></p>
     </header>
     <time>{{ task.dueDate | date:'fullDate'}}</time>
     <p>{{ task.summary }}</p>
@@ -81,27 +98,8 @@
         <button type="button" (click)="onStartAddRequest()">Click on me to learn more about HTTP requests with images!</button>
       </p>
     </div>
-    <div *ngIf="task.title === 'Template Forms'">
+    <div class="form-container" *ngIf="task.title === 'Template Forms'">
       <app-simple-form />
     </div>
-
-    <div class="form">
-      <select #status>
-        <option value="open" [selected]="task.status === 'OPEN'">Open</option>
-        <option value="in-progress" [selected]="task.status === 'IN_PROGRESS'">
-          In-Progress
-        </option>
-        <option value="done" [selected]="task.status === 'DONE'">
-          Completed
-        </option>
-      </select>
-      <p>
-        <button class="button" (click)="onChangeTaskStatus(task.id, status.value)">Change Status</button>
-      </p>
-    </div>
-
-    <p class="actions">
-      <button type="button" (click)="onCompleteTask()">Complete</button>
-    </p>
   </article>
 </app-card>
