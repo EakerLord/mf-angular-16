@@ -2,9 +2,9 @@
 
 <div class="mf-angular-16-remote-theme">
   <app-header />
-   <div>
-    <p id="fallback">Select a lesson to see their information</p>
-    <ul id="users">
+  <div>
+    <p class="mf-angular-16-remote-theme__fallback">Select a lesson to see their information</p>
+    <ul class="mf-angular-16-remote-theme__users">
       <li *ngFor="let lesson of lessons">
         <app-lesson
           [lesson]="lesson"
@@ -18,4 +18,3 @@
     </div>
   </div>
 </div>
-
