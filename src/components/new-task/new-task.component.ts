@@ -12,13 +12,16 @@ export class NewTaskComponent {
   enteredTitle = '';
   enteredSummary = '';
   enteredDate = '';
+  isTesting = false;
 
   constructor(private taskService: TaskService, private route: ActivatedRoute, private router: Router) {
-    effect(() => {
-      const parentParams = this.route.parent?.snapshot.paramMap;
-      const id = parentParams?.get('lessonId');
-      if (id) this.lessonId = id;
-    });
+    if (!this.isTesting) {
+      effect(() => {
+        const parentParams = this.route.parent?.snapshot.paramMap;
+        const id = parentParams?.get('lessonId');
+        if (id) this.lessonId = id;
+      });
+    }
   }
 
   onSubmit() {

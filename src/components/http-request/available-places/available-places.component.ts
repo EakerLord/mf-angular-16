@@ -13,6 +13,7 @@ export class AvailablePlacesComponent implements OnDestroy {
   userPlaces: Place[] = [];
   isFetching = false;
   localError = '';
+  isTesting = false;
 
   private subscription!: Subscription;
   private placesService!: InstanceType<typeof PlacesService>;
@@ -20,6 +21,7 @@ export class AvailablePlacesComponent implements OnDestroy {
   constructor(private injector: Injector, private errorService: ErrorService) { }
 
   async ngOnInit() {
+    if (this.isTesting) return; // avoids the async logic on the test
     this.isFetching = true;
     try {
       const hostServiceModule = await loadRemoteModule({

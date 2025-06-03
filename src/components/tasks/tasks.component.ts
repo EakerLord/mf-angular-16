@@ -50,7 +50,7 @@ export class TasksComponent {
   onTaskChanged() {
     this.updateDisplayedTasks();
   }
-  private updateDisplayedTasks(): void {
+  updateDisplayedTasks(): void {
     const tasks = this.taskService.getLessonTasks(this.lessonId);
 
     let filtered = tasks;

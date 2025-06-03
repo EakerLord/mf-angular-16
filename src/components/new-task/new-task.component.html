@@ -6,7 +6,7 @@
   </span>
 </span>
 
-<form id="add-task-form" class="add-task-form" (ngSubmit)="onSubmit()">
+<form id="add-task-form" name="addTaskForm" class="add-task-form" (ngSubmit)="onSubmit()">
   <div class="add-task-form__group">
     <label class="add-task-form__label" for="title">Title</label>
     <input class="add-task-form__control" type="text" id="title" name="title" [(ngModel)]="enteredTitle" />
