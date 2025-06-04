@@ -35,6 +35,7 @@ export class TaskService {
   }
   updateTaskStatus(taskId: string, newStatus: TaskStatus) {
     this.tasks = this.tasks.map((task) => task.id === taskId ? { ...task, status: newStatus } : task);
+    this.saveTasks();
   }
 
   private saveTasks() {
