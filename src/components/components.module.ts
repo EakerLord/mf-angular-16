@@ -15,8 +15,8 @@ import { AvailablePlacesComponent } from './http-request/available-places/availa
 import { FavoritePlacesComponent } from './http-request/favorite-places/favorite-places.component';
 import { PlacesComponent } from './http-request/places/places.component';
 import { PlacesContainerComponent } from './http-request/places-container/places-container.component';
-import { ErrorModalComponent } from "../shared/modal-error/error/error-modal.component";
-import { ModalComponent } from "../shared/modal-error/modal/modal.component";
+import { ErrorModalComponent } from "../shared/modal-error/components/error/error-modal.component";
+import { ModalComponent } from "../shared/modal-error/components/modal/modal.component";
 
 @NgModule({
   declarations: [

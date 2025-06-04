@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AvailablePlacesComponent } from './available-places.component';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ErrorService } from '../../../shared/modal-error/error.service';
+import { ErrorService } from '../../../shared/modal-error/service/error.service';
 import { Injector } from '@angular/core';
 import { of, throwError } from 'rxjs';
 

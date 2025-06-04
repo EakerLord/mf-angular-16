@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DUMMY_LESSONS } from "../assets/dummy-data"
-import { ErrorService } from '../shared/modal-error/error.service';
+import { ErrorService } from '../shared/modal-error/service/error.service';
 @Component({
   selector: 'app-root-angular-16',
   templateUrl: './app.component.html',

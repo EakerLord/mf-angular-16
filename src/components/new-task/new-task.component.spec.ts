@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NewTaskComponent } from './new-task.component';
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { TaskService } from '../../services/tasks.service';
+import { TaskService } from '../../services/tasks/tasks.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 describe('NewTaskComponent', () => {

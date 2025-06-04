@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { NewTaskData, TaskStatus, Task } from "../components/task/task.model";
-import { DUMMY_TASKS } from "../assets/dummy-data";
+import { NewTaskData, TaskStatus, Task } from "../../components/task/task.model";
+import { DUMMY_TASKS } from "../../assets/dummy-data";
 @Injectable({providedIn: 'root'})
 export class TaskService {
   private tasks = DUMMY_TASKS;

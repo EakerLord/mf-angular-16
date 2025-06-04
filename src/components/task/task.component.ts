@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { TaskStatus, type Task } from "./task.model";
-import { TaskService } from '../../services/tasks.service';
+import { TaskService } from '../../services/tasks/tasks.service';
 import { interval, map, Observable, Subscription } from 'rxjs';
 @Component({
   selector: 'app-task',

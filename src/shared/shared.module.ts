@@ -2,10 +2,10 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 
-import { TemperaturePipe } from "../pipes/temperature.pipe";
-import { SafeLinkDirective } from "../directives/safe-link.directive";
+import { TemperaturePipe } from "../pipes/temperature/temperature.pipe";
+import { SafeLinkDirective } from "../directives/safe-link/safe-link.directive";
 
-import { AuthDirective } from "../directives/auth.directive";
+import { AuthDirective } from "../directives/auth/auth.directive";
 import { RouterModule } from "@angular/router";
 
 @NgModule({

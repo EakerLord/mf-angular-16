@@ -1,5 +1,5 @@
 import { Component, effect, EventEmitter, Input, Output } from '@angular/core';
-import { TaskService } from '../../services/tasks.service';
+import { TaskService } from '../../services/tasks/tasks.service';
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-new-task',

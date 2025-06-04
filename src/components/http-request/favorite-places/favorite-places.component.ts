@@ -3,7 +3,7 @@ import { Place } from '../place-model';
 import { Subscription } from 'rxjs';
 import { PlacesService } from 'host/PlacesService';
 import { loadRemoteModule } from '@angular-architects/module-federation';
-import { ErrorService } from '../../../shared/modal-error/error.service';
+import { ErrorService } from '../../../shared/modal-error/service/error.service';
 
 @Component({
   selector: 'app-favorite-places',

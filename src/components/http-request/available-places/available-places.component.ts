@@ -3,7 +3,7 @@ import { Place } from '../place-model';
 import { loadRemoteModule } from '@angular-architects/module-federation';
 import { PlacesService } from 'host/PlacesService';
 import { Subscription } from 'rxjs';
-import { ErrorService } from '../../../shared/modal-error/error.service';
+import { ErrorService } from '../../../shared/modal-error/service/error.service';
 @Component({
   selector: 'app-available-places',
   templateUrl: './available-places.component.html',

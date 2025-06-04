@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { ErrorService } from '../shared/modal-error/error.service';
+import { ErrorService } from '../shared/modal-error/service/error.service';
 import { Subject } from 'rxjs';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';

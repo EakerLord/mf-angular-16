@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AuthDirective } from './auth.directive';
-import { TaskService } from '../services/tasks.service';
+import { TaskService } from '../../services/tasks/tasks.service';
 
 class MockTaskService {
   private _permission: string = '';

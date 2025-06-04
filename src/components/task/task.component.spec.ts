@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { TaskComponent } from './task.component';
-import { TaskService } from '../../services/tasks.service';
+import { TaskService } from '../../services/tasks/tasks.service';
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Task } from './task.model';
 
