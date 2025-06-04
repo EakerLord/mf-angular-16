@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { NotFoundComponent } from '../components/not-found/not-found.component';
 import { routes as tasksRoutes } from "../components/tasks/tasks.routes";
 
 export const routes: Routes = [
@@ -11,7 +12,7 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    loadComponent: () => import('../components/not-found/not-found.component').then(m => m.NotFoundComponent),
+    component: NotFoundComponent,
     title: 'Page not found'
   }
 ];
