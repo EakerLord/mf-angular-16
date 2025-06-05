@@ -4,13 +4,17 @@ import { RouterModule } from '@angular/router';
 import { routes } from "./app.routes";
 import { ComponentsModule } from '../components/components.module';
 import { SharedModule } from '../shared/shared.module';
-// This aproach is available for versions Angular 14 and less, for Angular 15 and more use the "inject" approach.
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RemoteA16Interceptor } from '../interceptors/remote-a16-interceptor/remote-a16.interceptor';
+/*(A <= 14) -> For Angular 15 and more use the "inject" approach.
 import { APP_INITIALIZER, Injector } from '@angular/core';
 import { loadPlacesService } from './remote-providers';
+*/
 @NgModule({
   declarations: [ AppComponent ],
   imports: [ SharedModule, ComponentsModule, RouterModule.forChild(routes) ],
   providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: RemoteA16Interceptor, multi: true}
     /*(A <= 14) -> Manually registers the remote module making the service available globally.
     {
       provide: APP_INITIALIZER,
