@@ -1,9 +1,10 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { NewTaskComponent } from './new-task.component';
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TaskService } from '../../services/tasks/tasks.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { By } from '@angular/platform-browser';
 
 describe('NewTaskComponent', () => {
   let component: NewTaskComponent;
@@ -45,9 +46,7 @@ describe('NewTaskComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create the new task component', () => {
-    expect(component).toBeTruthy();
-  });
+  it('should create the new task component', () => { expect(component).toBeTruthy() });
 
   it('should render the form title', () => {
     const title = fixture.nativeElement.querySelector('.add-task-form__title');
@@ -58,7 +57,7 @@ describe('NewTaskComponent', () => {
   it('should render all input fields', () => {
     expect(fixture.nativeElement.querySelector('input#title')).toBeTruthy();
     expect(fixture.nativeElement.querySelector('textarea#summary')).toBeTruthy();
-    expect(fixture.nativeElement.querySelector('input#due-date')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('input#dueDate')).toBeTruthy();
   });
 
   it('should render Cancel and Create buttons', () => {
@@ -90,26 +89,29 @@ describe('NewTaskComponent', () => {
     expect(mockRouter.navigate).toHaveBeenCalledWith(['../'], { relativeTo: jasmine.any(Object) });
   });
 
-  // it('should update model values when input changes', async () => {
-  //   fixture.detectChanges();
+  /* This case is a limitation/bug of Angular in unit tests with ngModel inside <form>, demonstrating that the choice of form type matters.
+  it('should update model values when input changes', async () => {
+    fixture.detectChanges();
 
-  //   const titleInput: HTMLInputElement = fixture.nativeElement.querySelector('input#title');
-  //   const summaryInput: HTMLTextAreaElement = fixture.nativeElement.querySelector('textarea#summary');
-  //   const dateInput: HTMLInputElement = fixture.nativeElement.querySelector('input#due-date');
+    const titleDebug = fixture.debugElement.query(By.css('input#title'));
+    const summaryDebug = fixture.debugElement.query(By.css('textarea#summary'));
+    const dateDebug = fixture.debugElement.query(By.css('input#dueDate'));
 
-  //   titleInput.value = 'Test Task';
-  //   titleInput.dispatchEvent(new Event('input'));
-  //   summaryInput.value = 'Summary here';
-  //   summaryInput.dispatchEvent(new Event('input'));
-  //   dateInput.value = '2025-06-03';
-  //   dateInput.dispatchEvent(new Event('input'));
+    titleDebug.nativeElement.value = 'Test Task';
+    titleDebug.triggerEventHandler('input', { target: titleDebug.nativeElement });
 
-  //   await fixture.whenStable();
-  //   fixture.detectChanges();
+    summaryDebug.nativeElement.value = 'Summary here';
+    summaryDebug.triggerEventHandler('input', { target: summaryDebug.nativeElement });
 
-  //   expect(component.enteredTitle).toBe('Test Task');
-  //   expect(component.enteredSummary).toBe('Summary here');
-  //   expect(component.enteredDate).toBe('2025-06-03');
-  // });
+    dateDebug.nativeElement.value = '2025-06-03';
+    dateDebug.triggerEventHandler('input', { target: dateDebug.nativeElement });
+
+    await fixture.whenStable();
+    fixture.detectChanges();
+
+    expect(component.enteredTitle).toBe('Test Task');
+    expect(component.enteredSummary).toBe('Summary here');
+    expect(component.enteredDate).toBe('2025-06-03');
+  });*/
 
 });

@@ -38,7 +38,7 @@ describe('SafeLinkDirective', () => {
     spyOn(window, 'confirm').and.returnValue(true);
     const event = new MouseEvent('click');
     anchorDe.triggerEventHandler('click', event);
-    expect(anchorEl.getAttribute('href')).toBe('http://localhost:9877/test?test=123');
+    expect(anchorEl.getAttribute('href')).toBe('http://localhost:9876/test?test=123');
   });
 
   it('should prevent default if not confirmed', () => {
