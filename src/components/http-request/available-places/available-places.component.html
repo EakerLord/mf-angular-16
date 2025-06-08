@@ -1,13 +1,19 @@
 <app-places-container title="Available Places">
-  <p class="places-list__fallback" *ngIf="localError">{{ localError }}</p>
+  <div aria-live="polite">
+    <p class="places-list__fallback" *ngIf="localError">{{ localError }}</p>
 
-  <p class="places-list__fallback" *ngIf="isFetching && !localError">
-    Loading the available places, please wait.
-  </p>
+    <p class="places-list__fallback" *ngIf="isFetching && !localError">
+      Loading the available places, please wait.
+    </p>
 
-  <app-places [places]="userPlaces" (selectPlace)="onSelectPlace($event)" *ngIf="!isFetching && !localError && userPlaces.length > 0" />
+    <app-places
+      [places]="userPlaces"
+      (selectPlace)="onSelectPlace($event)"
+      *ngIf="!isFetching && !localError && userPlaces.length > 0"
+    />
 
-  <p class="places-list__fallback" *ngIf="!isFetching && !localError && userPlaces.length === 0">
-    Unfortunately, no places could be found.
-  </p>
+    <p class="places-list__fallback" *ngIf="!isFetching && !localError && userPlaces.length === 0">
+      Unfortunately, no places could be found.
+    </p>
+  </div>
 </app-places-container>

@@ -36,7 +36,7 @@ export const DUMMY_LESSONS = [
   },
   {
     id: 'l8',
-    name: 'Reactive Forms',
+    name: 'Template Forms',
     avatar: 'angular-logo.png',
   },
 ];
@@ -101,7 +101,7 @@ export const DUMMY_TASKS = [
     {
     id: 't8',
     lessonId: 'l8',
-    title: 'Reactive Forms',
+    title: 'Template Forms',
     summary: 'Practical example of a form with the implementation of: ngSubmit, ngModel, required, #XXXX="ngModel", conditional rendering and conditional classes:',
     dueDate: '2025-12-31',
     status: 'OPEN'

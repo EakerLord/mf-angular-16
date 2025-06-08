@@ -14,7 +14,6 @@ export const routes: Routes = [
         component: TasksComponent,
         title: resolveTitle,
         resolve: { lessonName: resolveLessonName },
-        canDeactivate: [canLeaveEditPage]
       },
       {
         path: 'new',

@@ -1,24 +1,24 @@
-<form #form="ngForm" class="login-form" (ngSubmit)="onSubmit(form)">
-  <h2 class="login-form__title">Login</h2>
+<form #form="ngForm" class="login-form" (ngSubmit)="onSubmit(form)" aria-labelledby="login-title" novalidate>
+  <h2 class="login-form__title" id="login-title">Login</h2>
   <div class="login-form__row">
     <div class="login-form__group login-form__group--no-margin">
       <label class="login-form__label" for="email">Email</label>
-      <input class="login-form__control" id="email" type="email" name="email" ngModel required email #email="ngModel" />
+      <input class="login-form__control" id="email" type="email" name="email" ngModel required email  #email="ngModel"
+        [attr.aria-describedby]="form.invalid && email.touched && email.dirty ? 'email-error' : null" />
     </div>
-
     <div class="login-form__group login-form__group--no-margin">
       <label class="login-form__label" for="password">Password</label>
-      <input class="login-form__control" id="password" type="password" name="password" ngModel required minlength="6" #password="ngModel" />
+      <input class="login-form__control" id="password" type="password" name="password" ngModel required minlength="6" #password="ngModel"
+        [attr.aria-describedby]="form.invalid && password.touched && password.dirty ? 'password-error' : null" />
     </div>
-
     <button class="login-form__button" [disabled]="form.invalid">Login</button>
   </div>
 
-  <div class="login-form__error" *ngIf="form.invalid && email.touched && email.dirty">
+  <div class="login-form__error" *ngIf="form.invalid && email.touched && email.dirty" id="email-error" aria-live="assertive">
     <p>Invalid email. Please try again</p>
   </div>
 
-  <div class="login-form__error" *ngIf="form.invalid && password.touched && password.dirty">
+  <div class="login-form__error" *ngIf="form.invalid && password.touched && password.dirty" id="password-error" aria-live="assertive">
     <p>Invalid password, it must be at least 6 characters. Please try again</p>
   </div>
 </form>

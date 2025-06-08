@@ -1,10 +1,8 @@
 <app-card>
   <button
-    class="lesson-card__button"
-    [routerLink]="['./tasks/', lesson.id]"
-    routerLinkActive="lesson-card__button--active"
-    (click)="onSelectLesson()"
-  >
+    class="lesson-card__button" [routerLink]="['./tasks/', lesson.id]" routerLinkActive="lesson-card__button--active"
+    (click)="onSelectLesson()" type="button"
+    role="option" [attr.aria-selected]="selected" [attr.aria-label]="'View tasks for ' + lesson.name">
     <img class="lesson-card__image" [src]="imagePath" [alt]="lesson.name" />
     <span class="lesson-card__name">{{ lesson.name }}</span>
   </button>

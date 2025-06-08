@@ -2,25 +2,28 @@
   <article class="task-card">
     <header class="task-card__header">
       <span>
-        <h3 class="task-card__title">{{ task.title }}</h3>
-        <p class="task-card__status">{{ taskStatus }}</p>
+        <h3 class="task-card__title" id="task-title-{{ task.id }}">{{ task.title }}</h3>
+        <p class="task-card__status" aria-live="polite">{{ taskStatus }}</p>
       </span>
       <div class="task-card__status-form">
-        <select #status class="task-card__status-select">
+        <label for="task-status-{{ task.id }}" class="visually-hidden">Change task status</label>
+        <select #status class="task-card__status-select" id="task-status-{{ task.id }}" [attr.aria-labelledby]="'task-title-' + task.id">
           <option value="open" [selected]="task.status === 'OPEN'">Open</option>
-          <option value="in-progress" [selected]="task.status === 'IN_PROGRESS'">
-            In-Progress
-          </option>
-          <option value="done" [selected]="task.status === 'DONE'">
-            Completed
-          </option>
+          <option value="in-progress" [selected]="task.status === 'IN_PROGRESS'">In-Progress</option>
+          <option value="done" [selected]="task.status === 'DONE'">Completed</option>
         </select>
         <p>
-          <button class="task-card__button" (click)="onChangeTaskStatus(task.id, status.value)">Change Status</button>
+          <button class="task-card__button" (click)="onChangeTaskStatus(task.id, status.value)"
+            [attr.aria-label]="'Change status for ' + task.title" type="button">
+            Change Status
+          </button>
         </p>
       </div>
       <p class="task-card__actions">
-        <button type="button" class="task-card__button" (click)="onCompleteTask()">Complete</button>
+        <button type="button" class="task-card__button" (click)="onCompleteTask()"
+          [attr.aria-label]="'Mark ' + task.title + ' as complete'">
+          Complete
+        </button>
       </p>
     </header>
     <time class="task-card__date">{{ task.dueDate | date:'fullDate'}}</time>
@@ -105,10 +108,16 @@
           </ul>
         </li>
       </ul>
-
       <app-new-request (close)="onCloseAddRequest()" *ngIf="isAddingRequest"></app-new-request>
       <p class="task-card__actions">
-        <button type="button" class="task-card__button" (click)="onStartAddRequest()">Click on me to learn more about HTTP requests with images!</button>
+        <button
+          type="button"
+          class="task-card__button"
+          (click)="onStartAddRequest()"
+          [attr.aria-label]="'Learn more about HTTP requests for ' + task.title"
+        >
+          Click on me to learn more about HTTP requests with images!
+        </button>
       </p>
     </div>
     <div *ngIf="task.title === 'Routes'">

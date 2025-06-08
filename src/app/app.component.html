@@ -1,20 +1,29 @@
-<app-error-modal [title]="'Something went wrong'" [message]="error" *ngIf="error"></app-error-modal>
+<app-error-modal
+  *ngIf="error" role="alertdialog" [title]="'Something went wrong'" [message]="error"
+  aria-modal="true" [attr.aria-labelledby]="'error-modal-title'"
+  [attr.aria-describedby]="'error-modal-message'">
+</app-error-modal>
 
 <div class="mf-angular-16-remote-theme">
-  <app-header />
-  <div>
-    <p class="mf-angular-16-remote-theme__fallback">Select a lesson to see their information</p>
-    <ul class="mf-angular-16-remote-theme__users">
-      <li *ngFor="let lesson of lessons">
-        <app-lesson
-          [lesson]="lesson"
-          [selected]="lesson.id === selectedLessonId"
-          (select)="onSelectLesson($event)" />
-      </li>
-    </ul>
-
-    <div class="mf-angular-16-remote-theme__lessons-tasks">
+  <header>
+    <app-header />
+  </header>
+  <main tabindex="-1" id="main-content">
+    <h1 class="mf-angular-16-remote-theme__fallback">
+      Select a lesson to see their information
+    </h1>
+    <nav aria-label="Lessons">
+      <ul class="mf-angular-16-remote-theme__users">
+        <li *ngFor="let lesson of lessons">
+          <app-lesson
+            [lesson]="lesson" [selected]="lesson.id === selectedLessonId" (select)="onSelectLesson($event)"
+            [attr.tabindex]="0" [attr.aria-selected]="lesson.id === selectedLessonId" [attr.role]="'option'">
+          </app-lesson>
+        </li>
+      </ul>
+    </nav>
+    <section class="mf-angular-16-remote-theme__lessons-tasks" aria-live="polite">
       <router-outlet />
-    </div>
-  </div>
+    </section>
+  </main>
 </div>
