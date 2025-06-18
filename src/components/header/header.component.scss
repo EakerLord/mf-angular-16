@@ -1,7 +1,7 @@
-.legacy-header {
+.header-container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   gap: 1rem;
   width: 90%;
@@ -28,10 +28,42 @@
     font-size: 0.8rem;
     text-wrap: balance;
   }
+  &__language-select {
+    appearance: none;
+    background: linear-gradient(to bottom, #1e0d80, #0e0a4c);
+    color: #fff;
+    border-radius: 8px;
+    border-color: #a4a5ff;
+    border-width: 1px;
+    padding: 0.5rem 2rem 0.5rem 1rem;
+    font-size: 1rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    outline: none;
+    font-family: inherit;
+    margin-left: 0.5rem;
+    position: relative;
+
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+
+    &:focus {
+      box-shadow: 0 0 0 2px #fff, 0 1px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    option {
+      color: #222;
+      background: #fff;
+    }
+  }
 }
 
 @media (min-width: 768px) {
-  .legacy-header {
+  .header-container {
     padding: 2rem;
 
     &__logo {width: 4.5rem};
@@ -39,6 +71,10 @@
       font-size: 1.5rem;
       margin: 0;
       padding: 0;
+    }
+    &__language-select {
+      font-size: 1.1rem;
+      padding: 0.7rem 2.5rem 0.7rem 1.2rem;
     }
   }
 }

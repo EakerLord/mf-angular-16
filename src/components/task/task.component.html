@@ -31,10 +31,10 @@
 
     <div *ngIf="task.title === 'Data biding'">
       <ul>
-        <li><p class="task-card__summary" ngNonBindable>One-way: Interpolation uses: {{ expresion }}</p></li>
-        <li><p class="task-card__summary" ngNonBindable>One-way: Property binding uses: [src]="imageUrl"</p></li>
-        <li><p class="task-card__summary" ngNonBindable>One-way: Event binding uses: (click)="onClick()"</p></li>
-        <li><p class="task-card__summary" ngNonBindable>Two-way: Biding uses: [(ngModel)]="username" </p></li>
+        <li><p class="task-card__summary">{{ 'TASK_DATA-BIDING_PHRASE-1' | translate }}</p></li>
+        <li><p class="task-card__summary">{{ 'TASK_DATA-BIDING_PHRASE-2' | translate }}</p></li>
+        <li><p class="task-card__summary">{{ 'TASK_DATA-BIDING_PHRASE-3' | translate }}</p></li>
+        <li><p class="task-card__summary">{{ 'TASK_DATA-BIDING_PHRASE-4' | translate }}</p></li>
       </ul>
     </div>
     <div *ngIf="task.title === 'Directives'">

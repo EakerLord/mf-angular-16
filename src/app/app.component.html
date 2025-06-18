@@ -9,9 +9,7 @@
     <app-header />
   </header>
   <main tabindex="-1" id="main-content">
-    <h1 class="mf-angular-16-remote-theme__fallback">
-      Select a lesson to see their information
-    </h1>
+    <h1 class="mf-angular-16-remote-theme__fallback">{{ 'APP_TITLE' | translate }}</h1>
     <nav aria-label="Lessons">
       <ul class="mf-angular-16-remote-theme__users">
         <li *ngFor="let lesson of lessons">

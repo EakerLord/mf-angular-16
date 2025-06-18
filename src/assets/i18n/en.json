@@ -1,0 +1,9 @@
+{
+  "HEADER_TITLE": "Knowledge of Angular 16 and less",
+  "HEADER_SUBTITLE": "Senior-level knowledge with the Angular framework and versions 16 and less",
+  "APP_TITLE": "Select a lesson to see their information",
+  "TASK_DATA-BIDING_PHRASE-1": "One-way: Interpolation uses: {{ expresion }}",
+  "TASK_DATA-BIDING_PHRASE-2": "One-way: Property binding uses: [src]='imageUrl'",
+  "TASK_DATA-BIDING_PHRASE-3": "One-way: Event binding uses: (click)='onClick()'",
+  "TASK_DATA-BIDING_PHRASE-4": "Two-way: Biding uses: [(ngModel)]='username'"
+}

@@ -1,13 +1,18 @@
-<header class="legacy-header">
+<header class="header-container">
   <img
-    class="legacy-header__logo"
+    class="header-container__logo"
     src="assets/mf-angular-16/task-management-logo.png"
     alt="Task Management Logo"
   />
-  <div class="legacy-header__content">
-    <h1 class="legacy-header__title">Knowledge of Angular 16 and less</h1>
-    <p class="legacy-header__description">
-      Senior-level knowledge with the Angular framework and versions 16 and less
-    </p>
+
+  <div class="header-container__content">
+    <h1 class="header-container__title">{{ 'HEADER_TITLE' | translate }}</h1>
+    <p class="header-container__description">{{ 'HEADER_SUBTITLE' | translate }}</p>
   </div>
+
+  <select (change)="switchLanguage($event)" class="header-container__language-select">
+    <option value="en">English</option>
+    <option value="es">Español</option>
+  </select>
+
 </header>

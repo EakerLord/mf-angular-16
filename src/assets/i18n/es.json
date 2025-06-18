@@ -1,0 +1,9 @@
+{
+  "HEADER_TITLE": "Conocimiento de Angular 16 y menos",
+  "HEADER_SUBTITLE": "Conocimiento de nivel avanzado con el marco Angular y versiones 16 y menores",
+  "APP_TITLE": "Seleccione una lección para ver su información",
+  "TASK_DATA-BIDING_PHRASE-1": "Unidireccional: La interpolación utiliza: {{ expresión }}",
+  "TASK_DATA-BIDING_PHRASE-2": "Unidireccional: la vinculación de propiedades utiliza: [src]='imageUrl'",
+  "TASK_DATA-BIDING_PHRASE-3": "Unidireccional: la vinculación de eventos utiliza: (click)='onClick()'",
+  "TASK_DATA-BIDING_PHRASE-4": "Bidireccional: la oferta utiliza: [(ngModel)]='nombre de usuario'"
+}

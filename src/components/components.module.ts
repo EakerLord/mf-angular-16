@@ -17,6 +17,7 @@ import { PlacesComponent } from './http-request/places/places.component';
 import { PlacesContainerComponent } from './http-request/places-container/places-container.component';
 import { ErrorModalComponent } from "../shared/modal-error/components/error/error-modal.component";
 import { ModalComponent } from "../shared/modal-error/components/modal/modal.component";
+import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { ModalComponent } from "../shared/modal-error/components/modal/modal.com
     NotFoundComponent, TasksContainerComponent, NewRequestComponent, AvailablePlacesComponent, FavoritePlacesComponent,
     PlacesComponent, PlacesContainerComponent, ErrorModalComponent, ModalComponent
   ],
-  imports: [ SharedModule ],
+  imports: [ SharedModule, TranslateModule ],
   exports: [
     HeaderComponent, LessonComponent, TasksComponent, CardComponent, TaskComponent, NewTaskComponent, NotFoundComponent,
     TasksContainerComponent, NewRequestComponent, AvailablePlacesComponent, FavoritePlacesComponent, PlacesComponent,
